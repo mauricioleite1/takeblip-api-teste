@@ -1,12 +1,20 @@
 import { Request, Response } from "express";
+import { githubApi, listAllRepositoriesEndpoint } from "../../challenge/Api";
 import httpStatusCode from "../utils/enums";
 
-const getAll = async (req: Request, res: Response) => {
-  const data = { teste: 'teste' }
+const getAll = async (_req: Request, res: Response) => {
+  try {
+    const { data } = await githubApi.get(listAllRepositoriesEndpoint);
 
-  res
-    .status(httpStatusCode.OK)
-    .json(data);
+    res
+      .status(httpStatusCode.OK)
+      .json(data);
+  }
+  catch (error) {
+    res
+      .status(httpStatusCode.INTERNAL_SERVER_ERROR)
+      .json({ error: 'Ocorreu um erro no servidor' });
+  }
 }
 
 export default { getAll };
