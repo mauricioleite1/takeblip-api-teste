@@ -1,10 +1,9 @@
 import { Router } from "express";
+import repositoriesController from "../controllers/repositories.controller";
 
 const repositoriesRouter = Router();
 
-repositoriesRouter.get('/', (_, res) => {
-  res.send("TakeBlip Repositories");
-})
+repositoriesRouter.get('/', repositoriesController.getAll);
 
 export default repositoriesRouter;
 
