@@ -5,6 +5,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "allowJs": true,
+    "outDir": "public",
+    "rootDir": "src",
     "skipLibCheck": true
   }
 }
