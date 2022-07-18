@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "ts-node src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,8 @@
     "express": "^4.18.1"
   },
   "devDependencies": {
+    "dotenv": "^16.0.1",
+    "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
   }
 }
