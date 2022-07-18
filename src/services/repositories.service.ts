@@ -1,5 +1,5 @@
 import repositoriesModel from "../models/repositories.model";
-import { IRepositoriesList } from "../utils/interfaces";
+import { IRepository, IRepositoriesList } from "../utils/interfaces";
 
 const getAll = async () => {
   const data = await repositoriesModel.getAll();
@@ -8,17 +8,16 @@ const getAll = async () => {
 
 const getByLanguage = async (language: string) => {
   const data: IRepositoriesList = await repositoriesModel.getAll();
+
   const onlyFiveReposByLanguage: IRepositoriesList = data
-    .filter((a) => a.language === language)
-    .map(({ full_name, description, language, owner: { avatar_url } }) => ({
+    .filter((repository) => repository.language === language)
+    .slice(0, 5)
+    .map(({ full_name, description, language, owner: { avatar_url } }: IRepository) => ({
       full_name,
       description,
       language,
-      owner: {
-        avatar_url,
-      },
-    }))
-    .slice(0, 5);
+      owner: { avatar_url },
+    }));
 
   return onlyFiveReposByLanguage;
 };

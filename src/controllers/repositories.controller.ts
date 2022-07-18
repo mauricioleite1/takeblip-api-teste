@@ -1,36 +1,28 @@
 import { Request, Response } from "express";
 import repositoriesService from "../services/repositories.service";
+
+import { language } from "../../challenge/Api";
+import { handleError } from "../utils/helpers";
 import httpStatusCode from "../utils/enums";
 
 const getAll = async (_req: Request, res: Response) => {
   try {
     const data = await repositoriesService.getAll();
 
-    res
-      .status(httpStatusCode.OK)
-      .json(data);
+    return res.status(httpStatusCode.OK).json(data);
+  } catch (error: any) {
+    handleError(error, res)
   }
-  catch (error) {
-    res
-      .status(httpStatusCode.INTERNAL_SERVER_ERROR)
-      .json({ error: 'Ocorreu um erro no servidor' });
-  }
-}
+};
 
 const getByLanguage = async (_req: Request, res: Response) => {
   try {
-    const language = 'C#';
     const data = await repositoriesService.getByLanguage(language);
 
-    res
-      .status(httpStatusCode.OK)
-      .json(data);
+    return res.status(httpStatusCode.OK).json(data);
+  } catch (error: any) {
+    handleError(error, res)
   }
-  catch (error) {
-    res
-      .status(httpStatusCode.INTERNAL_SERVER_ERROR)
-      .json({ error: 'Ocorreu um erro no servidor' });
-  }
-}
+};
 
 export default { getAll, getByLanguage };
