@@ -13,7 +13,7 @@ const settings = {
   direction: 'asc'
 }
 
-const params = `sort=${settings.sortBy}&direction=${settings.direction}`;
+const params = `?sort=${settings.sortBy}&direction=${settings.direction}`;
 
 export {
   githubApi,
