@@ -8,4 +8,16 @@ const githubApi = axios.create({
 const org = process.env.ORG || 'takenet';
 const listAllRepositoriesEndpoint = `/orgs/${org}/repos`;
 
-export { githubApi, listAllRepositoriesEndpoint };
+const settings = {
+  quantity: 5,
+  sortBy: 'created',
+  direction: 'asc'
+}
+
+const params = `per_page=${settings.quantity}&sort=${settings.sortBy}&direction=${settings.direction}`;
+
+export {
+  githubApi,
+  listAllRepositoriesEndpoint,
+  params,
+};
