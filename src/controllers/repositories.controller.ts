@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { githubApi, listAllRepositoriesEndpoint, params } from "../../challenge/Api";
+import repositoriesService from "../services/repositories.service";
 import httpStatusCode from "../utils/enums";
 
 const getAll = async (_req: Request, res: Response) => {
   try {
-    const { data } = await githubApi.get(listAllRepositoriesEndpoint + '?' + params);
+    const data = await repositoriesService.getAll();
 
     res
       .status(httpStatusCode.OK)
