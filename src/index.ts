@@ -11,4 +11,8 @@ app.use(router);
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta: ${PORT}`));
 
+app.get("/api/", (req, res) => {
+  return res.send("wow, it actually worked");
+});
+
 export default app;
