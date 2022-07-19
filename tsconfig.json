@@ -6,7 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "allowJs": true,
-    "rootDir": "./src",
+    "rootDir": "api",
     "outDir": "public",
     "skipLibCheck": true
   }
