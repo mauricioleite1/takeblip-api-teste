@@ -1,4 +1,4 @@
-import { api, listAllEndpoint, params } from "../../challenge/Api";
+import { api, listAllEndpoint, params } from "../challenge/Api";
 
 const getAll = async () => {
   const { data } = await api.get(listAllEndpoint + params);
