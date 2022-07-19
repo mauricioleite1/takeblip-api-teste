@@ -3,6 +3,6 @@ import repositoriesRouter from './repositories.router';
 
 const router = Router();
 
-router.use('/', repositoriesRouter);
+router.use('/api/', repositoriesRouter);
 
 export default router;
