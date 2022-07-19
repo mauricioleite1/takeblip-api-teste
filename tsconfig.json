@@ -6,6 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "allowJs": true,
+    "rootDir": "./src",
     "outDir": "public",
     "skipLibCheck": true
   }
